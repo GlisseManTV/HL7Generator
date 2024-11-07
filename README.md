@@ -24,3 +24,10 @@ Settings dark & light
 ![image](https://github.com/user-attachments/assets/0c154061-a07d-4cae-bae8-5eb635421562)
 
 
+Example of use : 
+
+
+https://github.com/user-attachments/assets/36645d65-34c5-4d96-ae5c-8e56142c3fa5
+
+
+
