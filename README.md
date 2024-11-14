@@ -1,6 +1,6 @@
 # How to install
 
-Download the latest package here ===============================================================>
+Download the latest package here =============================================================>
 
 
 # HL7Generator
