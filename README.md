@@ -1,4 +1,10 @@
+# How to install
+
+Download the latest package here ==============>
+
+
 # HL7Generator
+
 User Friendly HL7 Generator trought windows Form Material UI
 
 This Windows application allow you to generate and send HL7 V2 messages trought a user friendly UI.
