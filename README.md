@@ -18,7 +18,7 @@ Reminder of current settings (at each launch)
 
 Main UI dark
 
-![image](https://github.com/user-attachments/assets/67f240f7-6420-48e3-b6bc-7e5e5373e9a6) 
+![image](https://github.com/user-attachments/assets/cac0469f-2950-4526-b848-7086438bcb85)
 
 Main UI light
 
