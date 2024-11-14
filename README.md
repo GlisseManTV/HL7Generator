@@ -36,4 +36,6 @@ Example of use :
 https://github.com/user-attachments/assets/36645d65-34c5-4d96-ae5c-8e56142c3fa5
 
 
+Thanks to NHapi for the beautiful library (https://github.com/nHapiNET/nHapi)
+
 
