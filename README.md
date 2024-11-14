@@ -36,6 +36,12 @@ Example of use :
 https://github.com/user-attachments/assets/36645d65-34c5-4d96-ae5c-8e56142c3fa5
 
 
+# Disclaimer
+
 Thanks to NHapi for the beautiful library (https://github.com/nHapiNET/nHapi)
+
+This project is NOT affiliated with the HL7 organization. This software just conforms to the HL7 2.x specifications.
+
+
 
 
