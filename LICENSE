@@ -19,3 +19,50 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+
+@echo off
+setlocal enabledelayedexpansion
+
+:: Definition des chemins
+set data_folder=C:\Tasksview\HL7interface\log
+
+echo [INFO] Debut du script
+
+date /T > tmp_date.txt
+for /f "tokens=3 delims=/ " %%a in ('type tmp_date.txt') do set annee=%%a
+for /f "tokens=2 delims=/ " %%a in ('type tmp_date.txt') do set mois=%%a
+for /f "tokens=1 delims=/ " %%a in ('type tmp_date.txt') do set jour=%%a
+del tmp_date.txt
+
+:: Formatage de la date en YYYYMMDD
+set today=%annee%%mois%%jour%
+echo [INFO] Date du jour : %today%
+
+:: Parcours des fichiers du dossier principal
+echo [INFO] Verification des fichiers dans %data_folder%
+for %%F in (%data_folder%\*.hl7) do (
+    set "filename=%%~nxF"
+    echo [INFO] Fichier trouve : !filename!
+    
+    :: Extraction de la date du fichier
+    for /f "tokens=1 delims= " %%D in ("!filename!") do set filedate=%%D
+    
+    :: Conversion de la date du fichier en format YYYYMMDD
+    for /f "tokens=1-3 delims=-" %%a in ("!filedate!") do set "filedate=%%c%%b%%a"
+    echo [INFO] Date extraite du fichier : !filedate!
+    
+    :: Si la date du fichier est differente de celle du jour, on le deplace
+    if not !filedate! == %today% (
+        set "dest_folder=%data_folder%\!filedate:~0,4!\!filedate:~4,2!\!filedate!"
+        if not exist "!dest_folder!" (
+            echo [INFO] Creation du dossier : !dest_folder!
+            mkdir "!dest_folder!"
+        )
+        echo [INFO] Deplacement de "%%F" vers "!dest_folder!"
+        move "%%F" "!dest_folder!"
+    ) else (
+        echo [INFO] Le fichier "%%F" correspond a la date du jour, il n'est pas deplace.
+    )
+)
+echo [INFO] Fin du script
