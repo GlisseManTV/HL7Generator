@@ -19,34 +19,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
-
-$DataFolder = "C:\Tasksview\HL7interface\log"
-$Today = (Get-Date -Format "yyyyMMdd")
-
-Write-Host "[INFO] Début du script"
-
-# Récupération et traitement des fichiers .hl7
-Get-ChildItem -Path $DataFolder -Filter "*.hl7" | ForEach-Object {
-    $File = $_.Name
-    $FilePath = $_.FullName
-    $DatePart = $File -split " " | Select-Object -First 1
-
-    if ($DatePart -match "(\d{1,2})-(\d{1,2})-(\d{4})") {
-        $FileDate = "$($matches[3])$($matches[2].PadLeft(2,'0'))$($matches[1].PadLeft(2,'0'))"
-
-        if ($FileDate -ne $Today) {
-            $DestFolder = "$DataFolder\$($matches[3])\$($matches[2].PadLeft(2,'0'))\$FileDate"
-
-            if (-not (Test-Path $DestFolder)) {
-                New-Item -ItemType Directory -Path $DestFolder | Out-Null
-                Write-Host "[INFO] Création du dossier : $DestFolder"
-            }
-
-            Move-Item -Path $FilePath -Destination $DestFolder
-            Write-Host "[INFO] Déplacement de $File vers $DestFolder"
-        }
-    }
-}
-
-Write-Host "[INFO] Fin du script"
