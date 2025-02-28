@@ -18,11 +18,11 @@ Reminder of current settings (at each launch)
 
 Main UI dark
 
-![image](https://github.com/user-attachments/assets/cac0469f-2950-4526-b848-7086438bcb85)
+![image](https://github.com/user-attachments/assets/3d3bd364-ae0e-4b3c-9384-075a1fcbd9bd)
 
 Main UI light
 
-![image](https://github.com/user-attachments/assets/3b185d78-14e1-4f47-b242-451969323de6)
+![image](https://github.com/user-attachments/assets/e3d7f945-1319-4604-af8c-e3f3c075c02d)
 
 Settings dark & light
 
